@@ -10,12 +10,4 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(private val service: Api) : ViewModel() {
-
-    private val outCurrentConditions = MutableLiveData<CurrentConditions>()
-    val currentConditions: LiveData<CurrentConditions>
-        get() = outCurrentConditions
-
-    fun loadData() = runBlocking { launch { outCurrentConditions.value = service.getCurrentConditions() }
-    }
-}
+class MainViewModel @Inject constructor(private val service: Api) : ViewModel()
